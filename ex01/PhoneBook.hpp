@@ -2,7 +2,7 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-# include <array>
+# include <iomanip>
 
 class PhoneBook
 {
@@ -10,13 +10,15 @@ class PhoneBook
 	PhoneBook();
 	~PhoneBook();
 
-	void addContact(const Contact &contact);
+	void addContact();
+	void welcome();
+	void search();
+	void displayContacts();
 
 	// Other public methods
 
   private:
-	std::array<Contact, 8> contacts;
-
+	Contact contacts[8];
 	// Private utility functions
 };
 
