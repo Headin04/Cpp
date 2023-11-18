@@ -3,27 +3,81 @@
 
 Contact::Contact()
 {
-	std::cout << "Contact : Constructor called" << std::endl;
+	// std::cout << "Contact : Constructor called" << std::endl;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact : Desstructor called" << std::endl;
+	// std::cout << "Contact : Desstructor called" << std::endl;
 }
 
-void Contact::setFirstName(const std::string &firstName)
+void Contact::setFirstName()
 {
-	this->firstName = firstName;
+	if (!std::cin.eof())
+	{
+		std::cout << "Enter the first Name: ";
+		std::cin >> this->firstName;
+	}
 }
 
-void Contact::setLastName(const std::string &lastName)
+void Contact::setLastName()
 {
-	this->lastName = lastName;
+	if (!std::cin.eof())
+	{
+		std::cout << "Enter the last Name: ";
+		std::cin >> this->lastName;
+	}
 }
 
-void Contact::setNickname(const std::string &nickname)
+void Contact::setNickname()
 {
-	this->nickname = nickname;
+	if (!std::cin.eof())
+	{
+		std::cout << "Enter the Nickname: ";
+		std::cin >> this->nickname;
+	}
 }
 
+void Contact::setPhoneNumber()
+{
+	if (!std::cin.eof())
+	{
+		std::cout << "Enter the Phone Number: ";
+		std::cin >> this->phoneNumber;
+	}
+}
+
+void Contact::setDarkestSecret()
+{
+	if (!std::cin.eof())
+	{
+		std::cout << "Enter the Darkest Secret: ";
+		std::cin >> this->darketSecret;
+	}
+}
+
+std::string Contact::getFirstName() const
+{
+	return (this->firstName);
+}
+
+std::string Contact::getLastName() const
+{
+	return (this->lastName);
+}
+
+std::string Contact::getNickname() const
+{
+	return (this->nickname);
+}
+
+std::string Contact::getPhoneNumber() const
+{
+	return (this->phoneNumber);
+}
+
+std::string Contact::getDarkestSecret() const
+{
+	return (this->darketSecret);
+}
 // Other method implementations

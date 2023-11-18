@@ -12,8 +12,11 @@ int	main(void)
 			book.addContact();
 		else if (input.compare("SEARCH") == 0)
 			book.search();
-		std::cout << "Enter new command:";
-		std::cin >> input;
+		if (!std::cin.eof())
+		{
+			std::cout << "Enter new command: ";
+			std::cin >> input;
+		}
 	}
 	return (0);
 }

@@ -11,22 +11,27 @@ class Contact
 	Contact();
 	~Contact();
 
-	void setFirstName(const std::string &firstName);
-	void setNickname(const std::string &nickname);
-	void setLastName(const std::string &lastName);
+	void setFirstName();
+	void setNickname();
+	void setLastName();
+	void setPhoneNumber();
+	void setDarkestSecret();
 
 	// Other setters
 
 	std::string getFirstName() const;
 	std::string getNickname() const;
 	std::string getLastName() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const;
 
 	// Other getters
-
   private:
 	std::string firstName;
 	std::string nickname;
-	std::string lastName;	
+	std::string lastName;
+	std::string phoneNumber;
+	std::string darketSecret;
 	// Other member variables
 };
 
