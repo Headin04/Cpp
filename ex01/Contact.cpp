@@ -16,7 +16,7 @@ void Contact::setFirstName()
 	if (!std::cin.eof())
 	{
 		std::cout << "Enter the first Name: ";
-		std::cin >> this->firstName;
+        std::getline(std::cin, this->firstName);
 	}
 }
 
@@ -25,7 +25,7 @@ void Contact::setLastName()
 	if (!std::cin.eof())
 	{
 		std::cout << "Enter the last Name: ";
-		std::cin >> this->lastName;
+		std::getline(std::cin, this->lastName);
 	}
 }
 
@@ -34,7 +34,7 @@ void Contact::setNickname()
 	if (!std::cin.eof())
 	{
 		std::cout << "Enter the Nickname: ";
-		std::cin >> this->nickname;
+		std::getline(std::cin, this->nickname);
 	}
 }
 
@@ -43,7 +43,7 @@ void Contact::setPhoneNumber()
 	if (!std::cin.eof())
 	{
 		std::cout << "Enter the Phone Number: ";
-		std::cin >> this->phoneNumber;
+		std::getline(std::cin, this->phoneNumber);
 	}
 }
 
@@ -52,7 +52,7 @@ void Contact::setDarkestSecret()
 	if (!std::cin.eof())
 	{
 		std::cout << "Enter the Darkest Secret: ";
-		std::cin >> this->darketSecret;
+		std::getline(std::cin, this->darketSecret);
 	}
 }
 

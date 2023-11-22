@@ -1,6 +1,7 @@
 // PhoneBook.cpp
 #include "PhoneBook.hpp"
 # include <iostream>
+# include <sstream>
 # include <stdio.h>
 
 
@@ -14,19 +15,16 @@ PhoneBook::~PhoneBook()
 	// std::cout << "Destructor called" << std::endl;
 }
 
-void PhoneBook::addContact()
-{
-	std::cout << "Add contact" << std::endl;
-	static size_t i;
-	if (!std::cin.eof())
-	{
-		this->contacts[i % 8].setFirstName();
-		this->contacts[i % 8].setLastName();
-		this->contacts[i % 8].setNickname();
-		this->contacts[i % 8].setPhoneNumber();
-		this->contacts[i % 8].setDarkestSecret();
-	}
-	i++;
+void PhoneBook::addContact() {
+    static size_t i;
+    if (!std::cin.eof()) {
+        this->contacts[i % 8].setFirstName();
+        this->contacts[i % 8].setLastName();
+        this->contacts[i % 8].setNickname();
+        this->contacts[i % 8].setPhoneNumber();
+        this->contacts[i % 8].setDarkestSecret();
+    }
+    i++;
 }
 
 void PhoneBook::welcome()
@@ -58,17 +56,35 @@ void PhoneBook::displayContacts()
 	}
 }
 
+int getPositiveIntInput(std::string prompt) {
+    std::string inputStr;
+    int input;
+
+    while (!std::cin.eof()) {
+        std::cout << prompt;
+        std::getline(std::cin, inputStr);
+        std::istringstream iss(inputStr);
+        if (!(iss >> input))
+        {
+            if (std::cin.eof())
+                return input;
+            std::cout << "Invalid input. Please enter a positive integer.\n";
+        } 
+        else if (input >= 0 && input <= 7)
+            break;
+        else
+            std::cout << "Invalid input. Please enter a number between 0 and 7.\n";
+    }
+    return input;
+}
+
+
 void PhoneBook::search()
 {
-	size_t i;
 	this->displayContacts();
-	std::cout << "Enter the index you chose: ";
-	std::cin >> i;
-	while (i > 7 || this->contacts[i].getFirstName().empty())
-	{
-		std::cout << "Wrong index, Enter the index again: ";
-		std::cin >> i;
-	}
+	if (this->contacts[0].getFirstName().empty())
+		return ;
+	int i = getPositiveIntInput("Enter index: ");
 	if (!std::cin.eof())
 	{
 		std::cout << "First Name: " << this->contacts[i].getFirstName() << std::endl;

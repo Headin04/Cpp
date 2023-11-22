@@ -15,7 +15,7 @@ int	main(void)
 		if (!std::cin.eof())
 		{
 			std::cout << "Enter new command: ";
-			std::cin >> input;
+			std::getline(std::cin, input);
 		}
 	}
 	return (0);
